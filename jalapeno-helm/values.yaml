@@ -76,9 +76,9 @@ arangodb:
     #   type: NodePort
     #   nodePorts:
     #     http: 30852
-    ingress:
-      enabled: true
-      hostname: arango.dev.network.garden
+  ingress:
+    enabled: true
+    hostname: arango.dev.network.garden
   auth:
     admin:
       username: root

@@ -30,7 +30,9 @@ spec:
             - --message-server
             - "{{ .Values.kafka.fullnameOverride }}.{{ .Release.Namespace }}:9092"
             - --database-server
-            - "http://arangodb.{{ .Release.Namespace }}:8529"
+            #- "http://arangodb.{{ .Release.Namespace }}:8529"
+            #- "http://{{ .Values.arangodb.ingress.hostname }}:80"
+            - "http://jalapeno-arangodb:8086" # TODO Fix hardcoded value
             - --database-name
             - "{{ .Values.arangodb.databaseName }}"
             - --notify-event

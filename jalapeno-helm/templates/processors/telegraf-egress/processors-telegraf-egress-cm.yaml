@@ -25,8 +25,8 @@ data:
     [[outputs.influxdb]]
       urls = ["http://{{ .Values.influxdb.fullnameOverride }}.{{ .Release.Namespace }}:8086"]
       database = "{{ (index .Values.influxdb.influxdb.extraEnvVars 0).value }}"
-      username = "{{ (index .Values.influxdb.influxdb.extraEnvVars 1).value }}"
-      password = "{{ (index .Values.influxdb.influxdb.extraEnvVars 2).value }}"
+      username = "{{ (index .Values.influxdb.influxdb.extraEnvVars 4).value }}"
+      password = "{{ (index .Values.influxdb.influxdb.extraEnvVars 5).value }}"
       precision = "s"
       timeout = "5s"
 

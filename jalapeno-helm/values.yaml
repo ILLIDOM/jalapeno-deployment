@@ -96,7 +96,8 @@ influxdb:
   fullnameOverride: influxdb
   image:
     repository: bitnami/influxdb
-    tag: 2.0.7-debian-10-r34
+    #tag: 2.0.7-debian-10-r34
+    tag: 1.7.8-r24 # newest release for oldest influxdb version
   auth:
     admin:
       username: admin
@@ -104,12 +105,24 @@ influxdb:
   influxdb:
     extraEnvVars:
       # Don't change the ordering!
+      # - name: INFLUXDB_DB
+      #   value: "mdt_db"
+      # - name: INFLUXDB_USER
+      #   value: jalapeno
+      # - name: INFLUXDB_USER_PASSWORD
+      #   value: jalapeno
       - name: INFLUXDB_DB
         value: "mdt_db"
+      - name: INFLUXDB_ADMIN_ENABLED
+        value: "true"
+      - name: INFLUXDB_ADMIN_USER
+        value: "admin"
+      - name: INFLUXDB_ADMIN_PASSWORD
+        value: "gsplabgsplab"
       - name: INFLUXDB_USER
-        value: jalapeno
+        value: "jalapeno"
       - name: INFLUXDB_USER_PASSWORD
-        value: jalapeno
+        value: "jalapeno"
     replicaCount: 1
     service:
       type: NodePort

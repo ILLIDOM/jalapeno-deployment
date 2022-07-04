@@ -113,12 +113,6 @@ influxdb:
       #   value: jalapeno
       - name: INFLUXDB_DB
         value: "mdt_db"
-      - name: INFLUXDB_ADMIN_ENABLED
-        value: "true"
-      - name: INFLUXDB_ADMIN_USER
-        value: "admin"
-      - name: INFLUXDB_ADMIN_PASSWORD
-        value: "gsplabgsplab"
       - name: INFLUXDB_USER
         value: "jalapeno"
       - name: INFLUXDB_USER_PASSWORD

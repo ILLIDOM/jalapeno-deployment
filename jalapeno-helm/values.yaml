@@ -118,10 +118,15 @@ influxdb:
       - name: INFLUXDB_USER_PASSWORD
         value: "jalapeno"
     replicaCount: 1
+    # service:
+    #   type: NodePort
+    #   nodePorts:
+    #     http: 30308
     service:
-      type: NodePort
-      nodePorts:
-        http: 30308
+      type: ClusterIP
+      ports:
+        http: 8086
+        rpc: 8088
 
 # https://github.com/bitnami/charts/tree/master/bitnami/grafana
 grafana:
@@ -133,9 +138,13 @@ grafana:
     user: root
     password: jalapeno
   replicaCount: 1
+  # service:
+  #   type: NodePort
+  #   nodePort: 30300
   service:
-    type: NodePort
-    nodePort: 30300
+    type: ClusterIP
+    ports:
+      grafana: 3000
   ingress:
     enabled: true
     hostname: grafana.dev.network.garden

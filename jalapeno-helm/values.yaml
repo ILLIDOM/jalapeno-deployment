@@ -6,8 +6,8 @@ collectors:
     name: gobmp
     replicas: 1
     image: docker.io/sbezverk/gobmp:latest
-    nodePorts:
-      incomingBMPSessions: 30511
+    ports:
+      incomingBMPSessions: 80 # 30511
       performanceMonitoring: 30767
     resources:
       requests:
@@ -16,12 +16,17 @@ collectors:
       limits:
         memory: 1024Mi
         cpu: 1
+    service:
+      loadBalancerIP: 172.16.19.64
+      annotations:
+        metallb.universe.tf/address-pool: load-balanced
+
   telegrafIngress:
     name: telegraf-ingress
     replicas: 1
     image: telegraf:1.15-alpine
     imagePullSecret: regcred
-    nodePort: 32400
+    port: 80 #32400
     # resources:
     #   requests:
     #     memory:
@@ -29,6 +34,10 @@ collectors:
     #   limits:
     #     memory:
     #     cpu:
+    service:
+      loadBalancerIP: 172.16.19.65
+      annotations:
+        metallb.universe.tf/address-pool: load-balanced
 
 processors:
   lslinknodeEdge:

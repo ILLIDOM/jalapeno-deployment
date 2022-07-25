@@ -7,7 +7,7 @@ collectors:
     replicas: 1
     image: docker.io/sbezverk/gobmp:latest
     ports:
-      incomingBMPSessions: 80 # 30511
+      incomingBMPSessions: 30511
       performanceMonitoring: 30767
     resources:
       requests:
@@ -26,7 +26,7 @@ collectors:
     replicas: 1
     image: telegraf:1.15-alpine
     imagePullSecret: regcred
-    port: 80 #32400
+    port: 32400
     # resources:
     #   requests:
     #     memory:

@@ -12,4 +12,3 @@ If the arangoDB gets changed the ArangoDB Chart has to be rebuild and copied int
 ## Known Bugs
 - arangodb works only with image tag ``3.6.12``
 - influxdb has to be set to version ``1.7``
-
